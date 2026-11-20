@@ -1,0 +1,1010 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+:root {
+    --green: #8cff72;
+    --green-soft: #b9ffad;
+    --green-dark: #285d2b;
+    --amber: #d0a34d;
+    --background: #080d08;
+    --panel: rgba(10, 25, 10, 0.75);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: var(--background);
+    color: var(--green);
+    font-family: 'Share Tech Mono', monospace;
+}
+
+button {
+    font-family: inherit;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.screen {
+    min-height: 100vh;
+    padding: 24px 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            #18351a 0%,
+            #0b160c 55%,
+            #050805 100%
+        );
+
+    animation: screenAppear 0.7s ease;
+}
+
+.screen::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+
+    background: repeating-linear-gradient(
+        transparent 0px,
+        rgba(140, 255, 114, 0.035) 1px,
+        transparent 2px,
+        transparent 4px
+    );
+}
+
+@keyframes screenAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.top-bar,
+.bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 6;
+}
+
+.top-bar {
+    border-bottom: 1px solid var(--green-dark);
+    padding-bottom: 12px;
+}
+
+.bottom-bar {
+    border-top: 1px solid var(--green-dark);
+    padding-top: 12px;
+}
+
+.intro-content {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+    position: relative;
+    z-index: 6;
+}
+
+.vault-emblem {
+    width: 105px;
+    height: 105px;
+    border: 3px solid var(--green);
+    border-radius: 50%;
+    margin: 0 auto 28px;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 0 25px #8cff7255;
+    position: relative;
+}
+
+.vault-emblem::before,
+.vault-emblem::after {
+    content: "";
+    position: absolute;
+    border: 1px solid var(--green-dark);
+    border-radius: 50%;
+}
+
+.vault-emblem::before {
+    inset: 8px;
+}
+
+.vault-emblem::after {
+    inset: -9px;
+}
+
+.emblem-inner {
+    font-size: 27px;
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    opacity: 0.75;
+}
+
+.intro-content h1 {
+    font-size: clamp(45px, 9vw, 78px);
+    letter-spacing: 6px;
+    margin: 12px 0;
+    text-shadow: 0 0 20px #8cff72;
+}
+
+.intro-subtitle {
+    font-size: 14px;
+    letter-spacing: 5px;
+}
+
+.intro-info,
+.record-box {
+    max-width: 410px;
+    margin: 35px auto;
+    padding: 20px;
+    border: 1px solid var(--green-dark);
+    background: rgba(10, 25, 10, 0.5);
+    text-align: left;
+    font-size: 12px;
+    line-height: 2.5;
+}
+
+.intro-info span,
+.record-box span {
+    float: right;
+    color: var(--green-soft);
+}
+
+.primary-button,
+.secondary-button {
+    padding: 15px 25px;
+    border: 1px solid var(--green);
+    background: var(--green);
+    color: #071007;
+    font-size: 13px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.primary-button:hover {
+    background: white;
+    box-shadow: 0 0 25px var(--green);
+}
+
+.secondary-button {
+    background: transparent;
+    color: var(--green);
+}
+
+.secondary-button:hover {
+    background: rgba(140, 255, 114, 0.1);
+}
+
+.intro-warning {
+    margin-top: 25px;
+    color: var(--amber);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+
+/* VAULT HUB */
+
+.hub-content {
+    width: 100%;
+    max-width: 1050px;
+    margin: 40px auto;
+    text-align: center;
+    position: relative;
+    z-index: 6;
+}
+
+.hub-content h2 {
+    font-size: clamp(30px, 6vw, 48px);
+    letter-spacing: 5px;
+    margin: 15px 0;
+    text-shadow: 0 0 15px #8cff7255;
+}
+
+.hub-description {
+    font-size: 12px;
+    line-height: 1.8;
+    opacity: 0.75;
+}
+
+.hub-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 25px auto 35px;
+    padding: 12px 20px;
+    border: 1px solid var(--green-dark);
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 10px var(--green);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    50% {
+        opacity: 0.3;
+    }
+}
+
+.vault-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.vault-door {
+    min-width: 0;
+    min-height: 235px;
+    border: 1px solid var(--green-dark);
+    background: rgba(10, 25, 10, 0.7);
+    color: var(--green);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    z-index: 6;
+}
+
+.vault-door.unlocked {
+    border-color: var(--green);
+}
+
+.vault-door.unlocked:hover {
+    transform: translateY(-5px);
+    background: rgba(140, 255, 114, 0.1);
+    box-shadow: 0 0 20px #8cff7233;
+}
+
+.vault-door.locked {
+    opacity: 0.35;
+    cursor: not-allowed;
+    filter: grayscale(1);
+}
+
+.vault-number {
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.door-circle {
+    width: 105px;
+    height: 105px;
+    border: 5px double var(--green-dark);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    position: relative;
+    box-shadow:
+        inset 0 0 0 5px rgba(140, 255, 114, 0.05),
+        0 0 12px #8cff7222;
+}
+
+.door-circle::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 2px solid var(--green-dark);
+    border-radius: 50%;
+}
+
+.door-circle::after {
+    content: "";
+    position: absolute;
+    width: 130%;
+    height: 2px;
+    background: var(--green-dark);
+}
+
+.door-wheel {
+    position: absolute;
+    font-size: 64px;
+    opacity: 0.35;
+}
+
+.door-center {
+    position: relative;
+    z-index: 1;
+    font-size: 24px;
+    background: #0c180d;
+    padding: 5px;
+}
+
+.vault-name {
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.vault-state {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: var(--amber);
+}
+
+.vault-door.unlocked .vault-state {
+    color: var(--green);
+}
+
+.hub-footer {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--amber);
+    margin-top: 35px;
+}
+
+
+/* LEVEL SCREENS */
+
+.level-content {
+    width: 100%;
+    max-width: 680px;
+    margin: 40px auto;
+    text-align: center;
+    position: relative;
+    z-index: 6;
+}
+
+.file-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+}
+
+.level-title {
+    font-size: clamp(38px, 8vw, 65px);
+    letter-spacing: 4px;
+    line-height: 1.2;
+    margin: 18px 0;
+    text-shadow: 0 0 20px #8cff7255;
+}
+
+.section-divider {
+    width: 90px;
+    height: 2px;
+    margin: 25px auto;
+    background: var(--green);
+    box-shadow: 0 0 12px var(--green);
+}
+
+.record-box {
+    margin: 25px auto;
+}
+
+.record-box .amber {
+    color: var(--amber);
+}
+
+.story-intro {
+    line-height: 2;
+    margin: 25px 0;
+    font-size: 13px;
+}
+
+.story-highlight {
+    color: var(--green-soft);
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.game-panel,
+.completion-panel {
+    margin-top: 35px;
+    animation: screenAppear 0.6s ease;
+}
+
+.game-label,
+.completion-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--amber);
+    margin-bottom: 15px;
+}
+
+.game-panel h2,
+.completion-panel h2 {
+    font-size: clamp(18px, 4vw, 25px);
+    letter-spacing: 2px;
+    margin-bottom: 22px;
+}
+
+.exam-paper {
+    max-width: 460px;
+    margin: auto;
+    padding: 22px;
+    text-align: left;
+    background: #c6c0a0;
+    color: #25291e;
+    box-shadow: 0 0 25px #0008;
+    transform: rotate(-1deg);
+}
+
+.paper-header,
+.paper-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #77745f;
+    padding-bottom: 12px;
+}
+
+.paper-body {
+    padding: 25px 5px;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.paper-body p {
+    margin-bottom: 12px;
+}
+
+.paper-body .missing-label {
+    margin-top: 20px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+}
+
+.missing-word {
+    text-align: center;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 27px;
+    font-weight: bold;
+    letter-spacing: 8px;
+    padding: 10px;
+    color: #354c30;
+}
+
+.paper-footer {
+    border-bottom: none;
+    border-top: 1px solid #77745f;
+    padding-top: 12px;
+}
+
+.answer-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.answer-button {
+    min-width: 105px;
+    padding: 13px 15px;
+    border: 1px solid var(--green);
+    background: transparent;
+    color: var(--green);
+    cursor: pointer;
+    font-size: 11px;
+    letter-spacing: 1px;
+    transition: 0.2s;
+}
+
+.answer-button:hover:not(:disabled) {
+    background: var(--green);
+    color: #071007;
+}
+
+.answer-button:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.game-feedback {
+    min-height: 20px;
+    margin-top: 20px;
+    color: var(--amber);
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.story-card {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 25px;
+    border: 1px solid var(--green-dark);
+    background: var(--panel);
+    font-size: 13px;
+    line-height: 2;
+}
+
+.story-card h3 {
+    margin: 18px 0;
+    font-size: 30px;
+    letter-spacing: 5px;
+    text-shadow: 0 0 15px var(--green);
+}
+
+.unlock-message {
+    color: var(--amber);
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin: 25px 0;
+}
+
+.music-placeholder {
+    margin: 30px auto;
+    padding: 25px;
+    border: 1px solid var(--green-dark);
+    background: var(--panel);
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 750px) {
+
+    .vault-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 13px;
+    }
+
+    .vault-door {
+        min-height: 210px;
+    }
+
+    .door-circle {
+        width: 85px;
+        height: 85px;
+    }
+
+    .door-wheel {
+        font-size: 52px;
+    }
+
+    .vault-name {
+        font-size: 11px;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .screen {
+        padding: 18px;
+    }
+
+    .top-bar,
+    .bottom-bar {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .intro-content h1 {
+        letter-spacing: 3px;
+    }
+
+    .hub-content h2 {
+        letter-spacing: 2px;
+    }
+
+    .vault-door {
+        min-height: 185px;
+        gap: 9px;
+    }
+
+    .vault-number {
+        font-size: 9px;
+    }
+
+    .door-circle {
+        width: 75px;
+        height: 75px;
+    }
+
+    .door-wheel {
+        font-size: 45px;
+    }
+
+    .vault-name {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .vault-state {
+        font-size: 8px;
+    }
+
+    .record-box {
+        font-size: 10px;
+        padding: 14px;
+    }
+
+    .exam-paper {
+        padding: 15px;
+    }
+
+    .paper-body {
+        font-size: 12px;
+    }
+
+    .answer-button {
+        min-width: 90px;
+        padding: 12px 8px;
+        font-size: 10px;
+    }
+
+}
+
+/* ================================= */
+/* VAULT 02 - THE FREQUENCY */
+/* ================================= */
+
+.audio-terminal {
+    max-width: 520px;
+    margin: 30px auto;
+    padding: 25px 20px;
+    border: 1px solid var(--green);
+    background: rgba(4, 15, 5, 0.9);
+    box-shadow: inset 0 0 25px #8cff7210,
+                0 0 20px #8cff7210;
+}
+
+.audio-status {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--amber);
+    margin-bottom: 30px;
+}
+
+.audio-visualizer {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    overflow: hidden;
+}
+
+.audio-visualizer span {
+    width: 5px;
+    height: 12px;
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+    border-radius: 3px;
+}
+
+.audio-visualizer.playing span {
+    animation: audioWave 0.65s ease-in-out infinite alternate;
+}
+
+.audio-visualizer.playing span:nth-child(2n) {
+    animation-delay: 0.2s;
+}
+
+.audio-visualizer.playing span:nth-child(3n) {
+    animation-delay: 0.4s;
+}
+
+@keyframes audioWave {
+    from {
+        height: 8px;
+    }
+
+    to {
+        height: 65px;
+    }
+}
+
+.audio-timer {
+    font-size: 36px;
+    letter-spacing: 5px;
+    margin: 20px 0;
+    text-shadow: 0 0 15px var(--green);
+}
+
+.audio-progress {
+    height: 4px;
+    background: #263b26;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+#audioProgress {
+    width: 0%;
+    height: 100%;
+    background: var(--green);
+    box-shadow: 0 0 10px var(--green);
+    transition: width 0.2s linear;
+}
+
+.audio-instruction {
+    font-size: 10px;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    opacity: 0.7;
+}
+
+#musicAnswers {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 520px;
+    margin: 25px auto;
+}
+
+.music-answer {
+    min-height: 75px;
+    padding: 12px;
+    border: 1px solid var(--green-dark);
+    background: rgba(10, 25, 10, 0.8);
+    color: var(--green);
+    font-family: inherit;
+    font-size: 11px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.music-answer:hover:not(:disabled) {
+    background: var(--green);
+    color: #071007;
+    box-shadow: 0 0 15px #8cff7255;
+}
+
+.music-answer:disabled {
+    cursor: default;
+    opacity: 0.6;
+}
+
+.music-answer.wrong {
+    border-color: #d66b54;
+    color: #d66b54;
+    animation: wrongAnswer 0.3s ease;
+}
+
+.music-answer.correct {
+    background: var(--green);
+    color: #071007;
+    border-color: var(--green);
+}
+
+@keyframes wrongAnswer {
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+#musicFeedback {
+    min-height: 25px;
+}
+
+#revealedSong {
+    font-size: clamp(25px, 5vw, 38px);
+    margin: 20px 0 10px;
+    text-shadow: 0 0 15px var(--green);
+}
+
+#revealedArtist {
+    color: var(--amber);
+    letter-spacing: 3px;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+#correctReveal {
+    animation: screenAppear 0.6s ease;
+}
+
+#musicCompletion {
+    animation: screenAppear 0.8s ease;
+}
+
+@keyframes frequencyGlitch {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: none;
+    }
+
+    25% {
+        opacity: 0.4;
+        transform: translateX(-5px);
+        filter: brightness(2);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: translateX(5px);
+    }
+
+    75% {
+        opacity: 0.3;
+        filter: brightness(2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: none;
+    }
+}
+
+.frequency-glitch {
+    animation: frequencyGlitch 0.5s ease;
+}
+
+@media (max-width: 500px) {
+
+    #musicAnswers {
+        grid-template-columns: 1fr;
+    }
+
+    .audio-terminal {
+        padding: 18px 12px;
+    }
+
+    .audio-visualizer {
+        gap: 3px;
+    }
+
+    .audio-visualizer span {
+        width: 4px;
+    }
+
+}
+
+
+/* ================================= */
+/* VAULT 03 - MEMORY ARCHIVE */
+/* ================================= */
+
+.archive-content {
+    max-width: 920px;
+}
+
+.archive-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin: 10px 0 18px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+
+.archive-frame {
+    position: relative;
+    width: min(100%, 760px);
+    height: min(62vh, 570px);
+    min-height: 260px;
+    margin: 0 auto;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid var(--green);
+    background: #020602;
+    box-shadow: 0 0 25px #8cff7230, inset 0 0 25px #8cff7215;
+    transition: opacity 0.18s ease, transform 0.18s ease, filter 0.18s ease;
+}
+
+.archive-frame.archive-transition {
+    opacity: 0.15;
+    transform: scale(0.985);
+    filter: brightness(1.8) blur(2px);
+}
+
+#archiveImage {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    opacity: 0;
+}
+
+#archiveImage.archive-image-in {
+    animation: archiveReveal 0.42s ease forwards;
+}
+
+@keyframes archiveReveal {
+    from { opacity: 0; transform: scale(1.025); filter: brightness(1.7); }
+    to { opacity: 1; transform: scale(1); filter: brightness(1); }
+}
+
+.archive-scanline {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        rgba(140,255,114,0.045) 1px,
+        transparent 3px,
+        transparent 5px
+    );
+}
+
+.archive-progress-track {
+    width: min(100%, 760px);
+    height: 7px;
+    margin: 18px auto 10px;
+    border: 1px solid var(--green-dark);
+    background: #020602;
+}
+
+#archiveProgress {
+    width: 0%;
+    height: 100%;
+    background: var(--green);
+    box-shadow: 0 0 12px var(--green);
+    transition: width 0.35s linear;
+}
+
+.archive-hint {
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    opacity: 0.65;
+}
+
+.archive-ending-card h3 {
+    color: var(--green-soft);
+    margin-top: 18px;
+    line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+    .archive-meta {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .archive-frame {
+        height: 55vh;
+        min-height: 220px;
+        padding: 7px;
+    }
+}

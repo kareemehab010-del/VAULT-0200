@@ -1,0 +1,111 @@
+
+/* =========================================================
+   VAULT 04 — THE WASTELAND / isolated visual system
+   ========================================================= */
+#vault04Screen { --v4:#a8ff83; --v4dim:#527b49; --v4amber:#e9b86a; --v4red:#ff786e; }
+#vault04Screen .v4-shell { width:min(1240px,100%); margin:28px auto; position:relative; z-index:6; }
+#vault04Screen .v4-card { max-width:850px; margin:25px auto; padding:clamp(22px,4vw,48px); border:1px solid #547d49; background:linear-gradient(145deg,rgba(12,28,14,.97),rgba(5,12,7,.98)); box-shadow:0 0 50px #8cff7218,inset 0 0 35px #8cff7208; text-align:center; }
+#vault04Screen .v4-eyebrow { color:var(--v4amber); font-size:10px; letter-spacing:4px; margin-bottom:18px; }
+#vault04Screen .v4-reactor { width:116px;height:116px;border:3px double var(--v4);border-radius:50%;display:grid;place-items:center;margin:22px auto;font-size:42px;box-shadow:0 0 35px #8cff7250,inset 0 0 20px #8cff7220;position:relative; }
+#vault04Screen .v4-reactor:before,#vault04Screen .v4-reactor:after { content:"";position:absolute;border:1px solid #527b49;border-radius:50%;inset:9px; }
+#vault04Screen .v4-reactor:after { inset:-10px;border-style:dashed;animation:v4spin 30s linear infinite; }
+@keyframes v4spin { to { transform:rotate(360deg); } }
+#vault04Screen .v4-intro h1,#vault04Screen .v4-ending h1 { font-size:clamp(36px,7vw,66px);letter-spacing:5px;text-shadow:0 0 22px #8cff7266;margin:12px 0; }
+#vault04Screen .v4-lead { color:#d4e8c8;max-width:650px;margin:15px auto 25px;line-height:1.8;font-size:14px; }
+#vault04Screen .v4-terminal { max-width:500px;margin:28px auto;padding:18px 22px;border:1px solid #365b35;background:#030904;text-align:left;font-size:11px;line-height:2.2; }
+#vault04Screen .v4-terminal p { display:flex;justify-content:space-between;gap:15px;border-bottom:1px dashed #254127; }
+#vault04Screen .v4-terminal span { color:#7d9d72; }
+#vault04Screen .v4-red { color:var(--v4red); }
+#vault04Screen .v4-story { margin:24px 0 12px;color:#9cb294;font-size:12px; }
+#vault04Screen blockquote { max-width:570px;margin:0 auto 28px;padding:15px;border-left:2px solid var(--v4amber);background:#e9b86a0b;color:#e6d8b6;font-size:14px;line-height:1.8; }
+#vault04Screen .v4-statusbar { display:flex;align-items:center;justify-content:space-between;gap:18px;padding:13px 16px;border:1px solid #446640;background:#071008;margin-bottom:16px; }
+#vault04Screen .v4-statusbar small,#vault04Screen .v4-statusbar strong { display:block;letter-spacing:2px; }
+#vault04Screen .v4-statusbar small { color:#76946d;font-size:9px; }
+#vault04Screen .v4-statusbar strong { font-size:13px;margin-top:4px; }
+#vault04Screen .v4-resources { display:flex;gap:clamp(9px,2vw,24px);font-size:13px;flex-wrap:wrap; }
+#vault04Screen .v4-resources span { color:#d7e9cf;white-space:nowrap; }
+#vault04Screen .v4-main-grid { display:grid;grid-template-columns:minmax(0,1.55fr) minmax(270px,.85fr);gap:16px;align-items:start; }
+#vault04Screen .v4-map-panel,#vault04Screen .v4-side { border:1px solid #3e6039;background:rgba(5,14,7,.92);min-width:0; }
+#vault04Screen .v4-panel-heading { padding:12px 14px;border-bottom:1px solid #29452a;display:flex;justify-content:space-between;gap:10px;color:#c4e5b6;font-size:10px;letter-spacing:2px; }
+#vault04Screen .v4-panel-heading span:last-child { color:#77956d;font-size:9px; }
+#vault04Screen .v4-live-dot { color:var(--v4)!important; }
+#vault04Screen .v4-map { min-height:405px;position:relative;overflow:hidden;padding:35px 25px 48px;display:grid;grid-template-columns:1fr 1fr;gap:25px 32px;align-content:center;background:radial-gradient(ellipse at 50% 45%,#203a20 0%,#101f12 48%,#071008 100%); }
+#vault04Screen .v4-map:before { content:"";position:absolute;inset:0;background:linear-gradient(30deg,transparent 48%,#8cff720a 49%,transparent 50%),linear-gradient(150deg,transparent 48%,#8cff720a 49%,transparent 50%);background-size:75px 75px;pointer-events:none; }
+#vault04Screen .v4-room { min-height:135px;position:relative;z-index:1;border:1px solid #729c61;background:linear-gradient(145deg,#365b35,#172c19);color:#e0f3d5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;cursor:pointer;transform:skewY(-4deg);box-shadow:8px 10px 0 #050a05,0 0 20px #8cff7210;transition:.2s; }
+#vault04Screen .v4-room:before { content:"";position:absolute;left:9px;right:-9px;bottom:-10px;height:9px;background:#0b170c;transform:skewX(40deg);border:1px solid #395a35; }
+#vault04Screen .v4-room:hover,#vault04Screen .v4-room.selected { border-color:var(--v4);box-shadow:8px 10px 0 #050a05,0 0 22px #8cff7255;filter:brightness(1.2); }
+#vault04Screen .v4-room b,#vault04Screen .v4-room small,#vault04Screen .v4-room em,#vault04Screen .v4-room-icon { transform:skewY(4deg); }
+#vault04Screen .v4-room b { font-size:11px;letter-spacing:1px; }
+#vault04Screen .v4-room small { font-size:9px;color:var(--v4); }
+#vault04Screen .v4-room em { font-style:normal;font-size:8px;color:#a4b99b; }
+#vault04Screen .v4-room-icon { font-size:25px;color:var(--v4amber); }
+#vault04Screen .v4-diner-room { background:linear-gradient(145deg,#59462a,#2c2418);border-color:#a27d48; }
+#vault04Screen .v4-radio-room { background:linear-gradient(145deg,#273b48,#121e27);border-color:#5c8598; }
+#vault04Screen .v4-room.locked-room { opacity:.45;filter:grayscale(1);cursor:not-allowed; }
+#vault04Screen .v4-room.damaged-room { border-color:var(--v4red); }
+#vault04Screen .v4-shaft { position:absolute;bottom:11px;left:50%;transform:translateX(-50%);border:1px solid #55774d;padding:5px 14px;text-align:center;color:#8cab7f;font-size:8px;letter-spacing:2px;background:#071008; }
+#vault04Screen .v4-shaft span { font-size:15px; }
+#vault04Screen .v4-map-caption { position:absolute;bottom:12px;right:12px;color:#66835e;font-size:8px;letter-spacing:1px; }
+#vault04Screen .v4-dweller-list { display:grid;grid-template-columns:1fr 1fr;gap:7px;padding:10px; }
+#vault04Screen .v4-dweller { display:flex;align-items:center;gap:8px;text-align:left;padding:8px;background:#0c1a0d;border:1px solid #29472a;color:#d9ebd1;cursor:pointer;min-width:0; }
+#vault04Screen .v4-dweller.active { border-color:var(--v4amber);background:#332916; }
+#vault04Screen .v4-dweller i,#vault04Screen .v4-team-card i { width:30px;height:30px;flex:0 0 30px;border-radius:50%;display:grid;place-items:center;background:#41643b;color:white;font-style:normal; }
+#vault04Screen .v4-dweller span { min-width:0; }
+#vault04Screen .v4-dweller b,#vault04Screen .v4-dweller small { display:block; }
+#vault04Screen .v4-dweller b { font-size:10px; }
+#vault04Screen .v4-dweller small { font-size:8px;color:#90a987;margin-top:4px; }
+#vault04Screen .v4-dweller em { margin-left:auto;font-style:normal;color:#b9d9a9;font-size:7px;max-width:60px;text-align:right; }
+#vault04Screen .v4-side { display:flex;flex-direction:column; }
+#vault04Screen .v4-mission,#vault04Screen .v4-room-info { padding:15px;border-bottom:1px solid #29452a;text-align:left; }
+#vault04Screen .v4-mission>small,#vault04Screen .v4-room-info>small { color:var(--v4amber);font-size:9px;letter-spacing:2px; }
+#vault04Screen .v4-mission h2 { font-size:17px;letter-spacing:1px;margin:10px 0; }
+#vault04Screen .v4-mission p,#vault04Screen .v4-room-info p { color:#9eb399;font-size:11px;line-height:1.7; }
+#vault04Screen .v4-objective { display:flex;align-items:center;gap:8px;border-top:1px dashed #2d492c;padding:8px 0;font-size:10px; }
+#vault04Screen .v4-objective span { color:var(--v4amber); }
+#vault04Screen .v4-objective b { margin-left:auto;color:var(--v4); }
+#vault04Screen .v4-room-info h3 { margin:8px 0;font-size:14px;letter-spacing:1px; }
+#vault04Screen .v4-action { display:block;width:100%;margin-top:9px;padding:10px;border:1px solid #83b36c;background:#152a16;color:#dff5d3;font:inherit;font-size:10px;letter-spacing:1px;cursor:pointer; }
+#vault04Screen .v4-action:disabled { opacity:.4;cursor:not-allowed; }
+#vault04Screen .v4-log { padding:10px 14px;max-height:120px;overflow:auto;font-size:9px;line-height:1.8;color:#8ba184;text-align:left; }
+#vault04Screen .v4-log p { border-bottom:1px solid #1d321e;padding:3px 0; }
+#vault04Screen .v4-bottom-actions { display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px; }
+#vault04Screen .v4-bottom-actions .secondary-button { padding:10px 13px;font-size:9px; }
+#vault04Screen #v4Hint { color:#829a78;font-size:8px;letter-spacing:1px;text-align:center; }
+#vault04Screen .v4-expedition-art { height:180px;margin:24px 0;background:linear-gradient(#15283a,#a66d43 68%,#3d3928 69%,#151d12);position:relative;overflow:hidden;border:1px solid #98744b; }
+#vault04Screen .v4-sun { position:absolute;width:68px;height:68px;border-radius:50%;background:#e8bd78;top:32px;left:22%;box-shadow:0 0 35px #e8bd7899; }
+#vault04Screen .v4-tower { position:absolute;bottom:38px;left:58%;font-size:88px;color:#1c271d;text-shadow:10px 0 #111a12; }
+#vault04Screen .v4-horizon { position:absolute;bottom:0;height:40px;width:100%;background:linear-gradient(160deg,transparent 25%,#172218 26% 40%,transparent 41%),linear-gradient(20deg,#111b12 20%,transparent 21%); }
+#vault04Screen .v4-expedition-label { position:absolute;bottom:9px;left:12px;color:#f0d7ad;font-size:9px;letter-spacing:2px; }
+#vault04Screen .v4-team { display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:20px 0; }
+#vault04Screen .v4-team-card { display:flex;flex-direction:column;align-items:center;gap:8px;padding:13px 5px;background:#0b170d;border:1px solid #355735;color:#d9ead2;cursor:pointer; }
+#vault04Screen .v4-team-card.selected { border-color:var(--v4amber);background:#352b18;box-shadow:0 0 15px #e9b86a33; }
+#vault04Screen .v4-team-card b { font-size:11px; }
+#vault04Screen .v4-team-card small { font-size:8px;color:#9bb292; }
+#vault04Screen .v4-feedback { color:var(--v4amber);font-size:10px;margin:12px 0; }
+#vault04Screen .v4-achievement-seal { width:100px;height:100px;margin:0 auto 20px;border:3px double #e7bc70;border-radius:50%;display:grid;place-items:center;color:#f3ca7a;font-size:52px;box-shadow:0 0 30px #e7bc7050; }
+#vault04Screen .v4-reveal { margin:25px auto;padding:22px;max-width:600px;background:#030904;border:1px solid #496c42;text-align:left; }
+#vault04Screen .v4-reveal small { color:var(--v4amber);letter-spacing:2px;font-size:9px; }
+#vault04Screen .v4-reveal p { margin-top:14px;line-height:1.8;color:#d8e9cd; }
+#vault04Screen .v4-reveal .v4-reveal-sign { text-align:right;color:#92aa86;font-size:10px; }
+#vault04Screen .v4-cert-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:20px 0; }
+#vault04Screen .v4-cert-grid span { padding:12px 5px;border:1px solid #385737;font-size:8px;color:#8ca982;letter-spacing:1px; }
+#vault04Screen .v4-cert-grid b { display:block;color:var(--v4);margin-top:7px;font-size:10px; }
+#vault04Screen .v4-achievement-name { padding:15px;border:1px solid #947444;color:var(--v4amber);font-size:9px;letter-spacing:2px;line-height:2; }
+#vault04Screen .v4-achievement-name strong { font-size:15px; }
+#vault04Screen .v4-final-line { margin:22px 0;color:#d8c79e;font-style:italic;font-size:13px; }
+#vault04Screen .v4-modal { position:fixed;inset:0;z-index:30;background:#000c;display:grid;place-items:center;padding:18px; }
+#vault04Screen .v4-modal-card { width:min(500px,100%);padding:28px;border:1px solid #9ac77e;background:#09140b;box-shadow:0 0 60px #8cff7233;text-align:center; }
+#vault04Screen .v4-modal-card>small { color:var(--v4amber);letter-spacing:3px;font-size:9px; }
+#vault04Screen .v4-modal-card h2 { margin:14px 0;font-size:22px; }
+#vault04Screen .v4-modal-card p { color:#b7cbb0;line-height:1.8;font-size:12px;margin-bottom:18px; }
+#vault04Screen .v4-modal-card button { display:block;width:100%;margin:8px 0;padding:12px;border:1px solid #638e58;background:#142a16;color:#dff3d5;font:inherit;font-size:10px;cursor:pointer; }
+@media(max-width:850px) { #vault04Screen .v4-main-grid { grid-template-columns:1fr; } #vault04Screen .v4-map { min-height:350px; } }
+@media(max-width:560px) {
+ #vault04Screen .v4-shell { margin:15px auto; } #vault04Screen .v4-statusbar { align-items:flex-start;flex-direction:column; }
+ #vault04Screen .v4-map { padding:25px 15px 50px;gap:20px 16px;min-height:340px; }
+ #vault04Screen .v4-room { min-height:112px; } #vault04Screen .v4-room b { font-size:9px; }
+ #vault04Screen .v4-dweller-list { grid-template-columns:1fr; }
+ #vault04Screen .v4-team { grid-template-columns:repeat(2,1fr); }
+ #vault04Screen .v4-bottom-actions { flex-wrap:wrap; } #vault04Screen #v4Hint { order:3;width:100%; }
+ #vault04Screen .v4-cert-grid { grid-template-columns:repeat(2,1fr); }
+}

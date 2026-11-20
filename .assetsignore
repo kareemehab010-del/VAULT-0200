@@ -1,0 +1,13 @@
+# Deployment/configuration and documentation are not public site assets.
+wrangler.jsonc
+.assetsignore
+VAULT*_README.txt
+CLOUDFLARE_FIX_README.txt
+*.zip
+
+# Local tooling / metadata.
+.git
+.wrangler
+node_modules
+.DS_Store
+Thumbs.db

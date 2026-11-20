@@ -1,0 +1,905 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080d08">
+    <title>VAULT-020 | The Malak Project</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="vault04/vault04.css">
+    <link rel="stylesheet" href="vault05/vault05.css">
+    <link rel="stylesheet" href="vault06/vault06.css">
+</head>
+
+<body>
+
+    <main id="app">
+
+        <!-- INTRO SCREEN -->
+
+        <section class="screen intro-screen" id="introScreen">
+
+            <div class="top-bar">
+                <span>VAULT-TEC INDUSTRIES</span>
+                <span>PERSONAL PROJECT // 020</span>
+            </div>
+
+            <div class="intro-content">
+
+                <div class="vault-emblem">
+                    <div class="emblem-inner">020</div>
+                </div>
+
+                <p class="eyebrow">PERSONAL MEMORY ARCHIVE</p>
+
+                <h1>VAULT-020</h1>
+
+                <p class="intro-subtitle">THE MALAK PROJECT</p>
+
+                <div class="intro-info">
+                    <p>VAULT STATUS: <span>OPERATIONAL</span></p>
+                    <p>REGISTERED DWELLERS: <span>02</span></p>
+                    <p>ARCHIVE FILES: <span>06</span></p>
+                </div>
+
+                <button class="primary-button" id="enterButton">
+                    ENTER THE VAULT
+                </button>
+
+                <p class="intro-warning">
+                    PLEASE KEEP ALL MEMORIES SAFE.
+                </p>
+
+            </div>
+
+            <div class="bottom-bar">
+                <span>VAULT-TEC © 2077</span>
+                <span>AUTHORIZED ACCESS ONLY</span>
+            </div>
+
+        </section>
+
+
+        <!-- MAIN VAULT ROOM -->
+
+        <section class="screen hub-screen hidden" id="hubScreen">
+
+            <div class="top-bar">
+                <span>VAULT-TEC INDUSTRIES</span>
+                <span>VAULT COMPLEX // 020</span>
+            </div>
+
+            <div class="hub-content">
+
+                <p class="eyebrow">WELCOME TO YOUR PERSONAL ARCHIVE</p>
+
+                <h2>THE VAULT COMPLEX</h2>
+
+                <p class="hub-description">
+                    Six vaults. Six collections of memories.
+                    One journey to unlock them all.
+                </p>
+
+                <div class="hub-status">
+                    <span class="status-dot"></span>
+                    <span id="progressText">1 / 6 VAULTS AVAILABLE</span>
+                </div>
+
+                <div class="vault-grid">
+
+                    <button class="vault-door unlocked"
+                            data-vault="1"
+                            id="vault1">
+
+                        <span class="vault-number">VAULT 01</span>
+
+                        <span class="door-circle">
+                            <span class="door-wheel">✣</span>
+                            <span class="door-center">01</span>
+                        </span>
+
+                        <span class="vault-name">THE ORIGIN</span>
+                        <span class="vault-state">AVAILABLE</span>
+
+                    </button>
+
+
+                    <button class="vault-door locked"
+                            data-vault="2"
+                            id="vault2"
+                            disabled>
+
+                        <span class="vault-number">VAULT 02</span>
+
+                        <span class="door-circle">
+                            <span class="door-wheel">✣</span>
+                            <span class="door-center">02</span>
+                        </span>
+
+                        <span class="vault-name">THE FREQUENCY</span>
+                        <span class="vault-state">LOCKED</span>
+
+                    </button>
+
+
+                    <button class="vault-door locked"
+                            data-vault="3"
+                            id="vault3"
+                            disabled>
+
+                        <span class="vault-number">VAULT 03</span>
+
+                        <span class="door-circle">
+                            <span class="door-wheel">✣</span>
+                            <span class="door-center">03</span>
+                        </span>
+
+                        <span class="vault-name">THE MEMORY ARCHIVE</span>
+                        <span class="vault-state">LOCKED</span>
+
+                    </button>
+
+
+                    <button class="vault-door locked"
+                            data-vault="4"
+                            id="vault4"
+                            disabled>
+
+                        <span class="vault-number">VAULT 04</span>
+
+                        <span class="door-circle">
+                            <span class="door-wheel">✣</span>
+                            <span class="door-center">04</span>
+                        </span>
+
+                        <span class="vault-name">UNDISCOVERED</span>
+                        <span class="vault-state">LOCKED</span>
+
+                    </button>
+
+
+                    <button class="vault-door locked"
+                            data-vault="5"
+                            disabled>
+
+                        <span class="vault-number">VAULT 05</span>
+
+                        <span class="door-circle">
+                            <span class="door-wheel">✣</span>
+                            <span class="door-center">05</span>
+                        </span>
+
+                        <span class="vault-name">UNDISCOVERED</span>
+                        <span class="vault-state">LOCKED</span>
+
+                    </button>
+
+
+                    <button class="vault-door locked"
+                            data-vault="6"
+                            disabled>
+
+                        <span class="vault-number">VAULT 06</span>
+
+                        <span class="door-circle">
+                            <span class="door-wheel">✣</span>
+                            <span class="door-center">06</span>
+                        </span>
+
+                        <span class="vault-name">UNDISCOVERED</span>
+                        <span class="vault-state">LOCKED</span>
+
+                    </button>
+
+                </div>
+
+                <p class="hub-footer">
+                    SOME DOORS ARE MEANT TO BE OPENED.
+                </p>
+
+            </div>
+
+            <div class="bottom-bar">
+                <span>VAULT-TEC © 2077</span>
+                <span>COMPLETION: <span id="completionCount">0%</span></span>
+            </div>
+
+        </section>
+
+
+        <!-- VAULT 01: THE ORIGIN -->
+
+        <section class="screen level-screen hidden" id="originScreen">
+
+            <div class="top-bar">
+                <span>VAULT-TEC INDUSTRIES</span>
+                <span>VAULT 01 // THE ORIGIN</span>
+            </div>
+
+            <div class="level-content">
+
+                <div class="file-label">
+                    <span class="status-dot"></span>
+                    RECOVERED MEMORY // 2023
+                </div>
+
+                <p class="eyebrow">FIRST CONTACT RECORD</p>
+
+                <h1 class="level-title">
+                    THE JALATA<br>INCIDENT
+                </h1>
+
+                <div class="section-divider"></div>
+
+                <div class="record-box">
+                    <p>YEAR: <span>2023</span></p>
+                    <p>LOCATION: <span>GEOLOGY CLASS</span></p>
+                    <p>EVENT: <span>FIRST MEETING</span></p>
+                    <p>ARCHIVE STATUS: <span class="amber">UNRESTORED</span></p>
+                </div>
+
+                <div class="story-intro">
+
+                    <p class="story-highlight">
+                        Every story has a beginning.
+                    </p>
+
+                    <p>
+                        This one started with a geology exam.
+                    </p>
+
+                </div>
+
+                <button class="primary-button" id="startMemoryButton">
+                    RECOVER MEMORY
+                </button>
+
+
+                <!-- MEMORY MINI GAME -->
+
+                <div class="game-panel hidden" id="originGame">
+
+                    <p class="game-label">
+                        MEMORY RECONSTRUCTION // 001
+                    </p>
+
+                    <h2>ONE WORD CHANGED THE ARCHIVE.</h2>
+
+                    <div class="exam-paper">
+
+                        <div class="paper-header">
+                            <span>GEOLOGY CLASS</span>
+                            <span>2023</span>
+                        </div>
+
+                        <div class="paper-body">
+
+                            <p>
+                                An exam brought two people together.
+                            </p>
+
+                            <p>
+                                A random joke about the teacher's name
+                                became an inside joke that stayed.
+                            </p>
+
+                            <p class="missing-label">
+                                WHICH WORD STARTED IT ALL?
+                            </p>
+
+                            <div class="missing-word">
+                                _ _ _ _ _ _
+                            </div>
+
+                        </div>
+
+                        <div class="paper-footer">
+                            MEMORY FRAGMENT 001
+                        </div>
+
+                    </div>
+
+                    <div class="answer-grid">
+
+                        <button class="answer-button"
+                                data-answer="GRANITE">
+                            GRANITE
+                        </button>
+
+                        <button class="answer-button"
+                                data-answer="JALATA">
+                            JALATA
+                        </button>
+
+                        <button class="answer-button"
+                                data-answer="FOSSIL">
+                            FOSSIL
+                        </button>
+
+                    </div>
+
+                    <p class="game-feedback" id="originFeedback">
+                        SELECT THE MISSING WORD.
+                    </p>
+
+                </div>
+
+
+                <!-- MEMORY COMPLETED -->
+
+                <div class="completion-panel hidden" id="originCompletion">
+
+                    <p class="completion-label">
+                        MEMORY SUCCESSFULLY RESTORED
+                    </p>
+
+                    <h2>FIRST CONTACT // 2023</h2>
+
+                    <div class="story-card">
+
+                        <p>It wasn't a special event.</p>
+
+                        <p>
+                            No dramatic introduction.
+                            No extraordinary circumstances.
+                        </p>
+
+                        <p>
+                            Just a geology class, an exam,
+                            and a joke about a teacher's name.
+                        </p>
+
+                        <p>
+                            Somehow, one random word stuck.
+                        </p>
+
+                        <h3>JALATA.</h3>
+
+                        <p>And that's how the story began.</p>
+
+                    </div>
+
+                    <p class="unlock-message">
+                        VAULT 02 ACCESS HAS BEEN GRANTED.
+                    </p>
+
+                    <button class="primary-button" id="originReturnButton">
+                        RETURN TO VAULT COMPLEX
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div class="bottom-bar">
+                <span>VAULT-TEC © 2077</span>
+                <span>MEMORY FILE // 001</span>
+            </div>
+
+        </section>
+
+
+        <!-- VAULT 02: MUSIC PLACEHOLDER -->
+
+<!-- VAULT 02: THE FREQUENCY -->
+
+<section class="screen level-screen hidden" id="musicScreen">
+
+    <div class="top-bar">
+        <span>VAULT-TEC INDUSTRIES</span>
+        <span>VAULT 02 // THE FREQUENCY</span>
+    </div>
+
+    <div class="level-content">
+
+        <!-- INTRO -->
+
+        <div id="musicIntro">
+
+            <p class="eyebrow">PERSONAL AUDIO DATABASE</p>
+
+            <h1 class="level-title">THE FREQUENCY</h1>
+
+            <div class="section-divider"></div>
+
+            <div class="record-box">
+                <p>RECOVERED FILES: <span>05</span></p>
+                <p>IDENTIFICATION: <span>REQUIRED</span></p>
+                <p>ACCESS LEVEL: <span>PERSONAL</span></p>
+                <p>SYSTEM STATUS: <span class="amber">AWAITING INPUT</span></p>
+            </div>
+
+            <div class="story-card">
+                <p>Some memories are remembered through pictures.</p>
+                <p>Others only need a few seconds of music.</p>
+                <p>Five unknown frequencies have been detected.</p>
+                <p>Identify every track to restore the archive.</p>
+            </div>
+
+            <button class="primary-button" id="startMusicGame">
+                INITIATE AUDIO SCAN
+            </button>
+
+        </div>
+
+
+        <!-- GAME -->
+
+        <div id="musicGame" class="hidden">
+
+            <div class="file-label">
+                <span class="status-dot"></span>
+                AUDIO RECOGNITION // ACTIVE
+            </div>
+
+            <p class="eyebrow" id="trackCounter">
+                FILE 01 / 05
+            </p>
+
+            <h2 class="level-title" id="audioTitle">
+                UNKNOWN FREQUENCY
+            </h2>
+
+            <div class="audio-terminal">
+
+                <div class="audio-status" id="audioStatus">
+                    INCOMING TRANSMISSION
+                </div>
+
+                <div class="audio-visualizer" id="audioVisualizer">
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                    <span></span><span></span><span></span>
+                </div>
+
+                <div class="audio-timer" id="audioTimer">
+                    00:30
+                </div>
+
+                <div class="audio-progress">
+                    <div id="audioProgress"></div>
+                </div>
+
+                <p class="audio-instruction" id="audioInstruction">
+                    LISTEN CAREFULLY. IDENTIFY THE TRACK.
+                </p>
+
+            </div>
+
+            <div id="answerSection" class="hidden">
+
+                <p class="game-label">
+                    IDENTIFY THE UNKNOWN TRACK
+                </p>
+
+                <div class="answer-grid" id="musicAnswers">
+
+                </div>
+
+                <p class="game-feedback" id="musicFeedback">
+                    SELECT YOUR ANSWER.
+                </p>
+
+            </div>
+
+            <div id="correctReveal" class="hidden">
+
+                <p class="completion-label">
+                    AUDIO FILE SUCCESSFULLY IDENTIFIED
+                </p>
+
+                <h2 id="revealedSong"></h2>
+
+                <p id="revealedArtist"></p>
+
+                <p class="unlock-message">
+                    FREQUENCY MATCH CONFIRMED.
+                </p>
+
+                <button class="primary-button" id="nextTrackButton">
+                    NEXT AUDIO FILE
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- FINAL COMPLETION -->
+
+        <div id="musicCompletion" class="hidden">
+
+            <div class="vault-emblem">
+                <div class="emblem-inner">05/05</div>
+            </div>
+
+            <p class="eyebrow">AUDIO DATABASE RESTORED</p>
+
+            <h2 class="level-title">
+                ALL FREQUENCIES<br>IDENTIFIED
+            </h2>
+
+            <div class="section-divider"></div>
+
+            <div class="story-card">
+                <p>Five songs.</p>
+                <p>Five memories hidden in familiar sounds.</p>
+                <p>Every frequency has found its place.</p>
+                <h3>ARCHIVE RESTORED.</h3>
+            </div>
+
+            <p class="unlock-message">
+                VAULT 03 ACCESS HAS BEEN GRANTED.
+            </p>
+
+            <button class="primary-button" id="musicReturnButton">
+                RETURN TO VAULT COMPLEX
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="bottom-bar">
+        <span>VAULT-TEC © 2077</span>
+        <span>AUDIO DATABASE // 002</span>
+    </div>
+
+    <!-- AUDIO SOURCE -->
+    <audio id="vaultAudio" preload="auto"></audio>
+
+</section>
+
+        
+
+
+
+        <!-- VAULT 03: THE MEMORY ARCHIVE -->
+
+        <section class="screen level-screen hidden" id="archiveScreen">
+
+            <div class="top-bar">
+                <span>VAULT-TEC INDUSTRIES</span>
+                <span>VAULT 03 // MEMORY ARCHIVE</span>
+            </div>
+
+            <div class="level-content archive-content">
+
+                <div id="archiveIntro">
+                    <p class="eyebrow">PERSONAL MEMORY DATABASE</p>
+                    <h1 class="level-title">THE MEMORY ARCHIVE</h1>
+                    <div class="section-divider"></div>
+
+                    <div class="record-box">
+                        <p>RECOVERED FILES: <span>067</span></p>
+                        <p>FILE TYPE: <span>SCREENSHOTS</span></p>
+                        <p>AUDIO SYSTEM: <span>STANDBY</span></p>
+                        <p>ARCHIVE STATUS: <span class="amber">CORRUPTED</span></p>
+                    </div>
+
+                    <div class="story-card">
+                        <p>Some memories are too random to explain.</p>
+                        <p>Some only make sense to the people who were there.</p>
+                        <p>67 fragments have been recovered from this archive.</p>
+                        <p>Initiate recovery to revisit them all.</p>
+                    </div>
+
+                    <button class="primary-button" id="startArchiveButton">
+                        INITIATE RECOVERY
+                    </button>
+                </div>
+
+                <div id="archiveSlideshow" class="hidden">
+                    <div class="archive-meta">
+                        <span class="file-label"><span class="status-dot"></span> RECOVERING MEMORY FILES</span>
+                        <span id="archiveCounter">MEMORY 01 / 067</span>
+                    </div>
+
+                    <div class="archive-frame" id="archiveFrame">
+                        <img id="archiveImage" alt="Recovered memory screenshot">
+                        <div class="archive-scanline"></div>
+                    </div>
+
+                    <div class="archive-progress-track">
+                        <div id="archiveProgress"></div>
+                    </div>
+                    <p class="archive-hint">PLEASE WAIT // DO NOT INTERRUPT ARCHIVE RECOVERY</p>
+                </div>
+
+                <div id="archiveEnding" class="hidden">
+                    <div class="vault-emblem">
+                        <div class="emblem-inner">067</div>
+                    </div>
+                    <p class="eyebrow">ARCHIVE SUCCESSFULLY RESTORED</p>
+                    <h2 class="level-title">67 MEMORIES.<br>COUNTLESS MOMENTS.</h2>
+                    <div class="section-divider"></div>
+                    <div class="story-card archive-ending-card">
+                        <p>From random conversations to ridiculous game moments...</p>
+                        <p>These are the little things that made our archive what it is.</p>
+                        <p>Not every memory needs a photo or a big occasion.</p>
+                        <h3>Some memories are special simply because they happened with you.</h3>
+                    </div>
+                    <p class="unlock-message">VAULT 03 // RECOVERY COMPLETE</p>
+                    <button class="primary-button" id="archiveReturnButton">
+                        RETURN TO VAULT COMPLEX
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="bottom-bar">
+                <span>VAULT-TEC © 2077</span>
+                <span>MEMORY DATABASE // 003</span>
+            </div>
+
+            <audio id="archiveAudio" preload="auto">
+                <source src="assets/audio/audio01.mp3" type="audio/mpeg">
+            </audio>
+        </section>
+
+    
+<!-- VAULT 04: THE WASTELAND -->
+<section class="screen level-screen hidden" id="vault04Screen">
+  <div class="top-bar"><span>VAULT-TEC INDUSTRIES</span><span>VAULT 04 // THE WASTELAND</span></div>
+  <div class="v4-shell">
+    <section id="v4Intro" class="v4-card v4-intro">
+      <div class="v4-eyebrow">EMERGENCY PROTOCOL // 04</div>
+      <div class="v4-reactor">04</div>
+      <h1>THE WASTELAND</h1>
+      <p class="v4-lead">A silent Vault. Four survivors. One chance to bring the lights back.</p>
+      <div class="v4-terminal">
+        <p><span>LOCATION</span> SECTOR 04 — UNKNOWN</p>
+        <p><span>DWELLERS</span> 04 REGISTERED</p>
+        <p><span>CORE STATUS</span> <b class="v4-red">CRITICAL</b></p>
+        <p><span>MISSION</span> RESTORE / SURVIVE / DISCOVER</p>
+      </div>
+      <p class="v4-story">The door sealed behind you. The terminal flickers once, then displays a message:</p>
+      <blockquote>“If you're reading this, the Vault chose you. Don't trust the cheerful announcements.”</blockquote>
+      <button class="primary-button" id="v4Begin">ASSUME OVERSEER CONTROL</button>
+    </section>
+
+    <section id="v4Game" class="hidden">
+      <div class="v4-statusbar">
+        <div><small>VAULT 04</small><strong id="v4PhaseLabel">RESTORATION</strong></div>
+        <div class="v4-resources">
+          <span>⚡ <b id="v4Power">60</b></span><span>💧 <b id="v4Water">45</b></span>
+          <span>🥫 <b id="v4Food">45</b></span><span>♥ <b id="v4Morale">70</b></span>
+        </div>
+      </div>
+      <div class="v4-main-grid">
+        <div class="v4-map-panel">
+          <div class="v4-panel-heading"><span>UNDERGROUND COMPLEX</span><span id="v4VaultCondition">SYSTEMS UNSTABLE</span></div>
+          <div class="v4-map" id="v4Map">
+            <button class="v4-room v4-power-room" data-room="power"><span class="v4-room-icon">⚡</span><b>GENERATOR</b><small id="v4PowerState">ONLINE</small><em id="v4PowerCrew">2 DWELLERS</em></button>
+            <button class="v4-room v4-water-room" data-room="water"><span class="v4-room-icon">◈</span><b>WATER PLANT</b><small id="v4WaterState">ONLINE</small><em id="v4WaterCrew">1 DWELLER</em></button>
+            <button class="v4-room v4-diner-room" data-room="diner"><span class="v4-room-icon">✚</span><b>DINER</b><small id="v4DinerState">DAMAGED</small><em id="v4DinerCrew">0 DWELLERS</em></button>
+            <button class="v4-room v4-radio-room" data-room="radio"><span class="v4-room-icon">⌁</span><b>RADIO ROOM</b><small id="v4RadioState">LOCKED</small><em id="v4RadioCrew">0 DWELLERS</em></button>
+            <div class="v4-shaft">ELEVATOR<br><span>↓</span></div>
+            <div class="v4-map-caption">FIXED ISOMETRIC VIEW // SELECT A ROOM</div>
+          </div>
+          <div class="v4-dwellers" id="v4Dwellers">
+            <div class="v4-panel-heading">DWELLER ROSTER <span>4 ACTIVE</span></div>
+            <div class="v4-dweller-list">
+              <button class="v4-dweller" data-dweller="ada"><i>A</i><span><b>ADA-7</b><small>STR 5 · INT 2 · LCK 2</small></span><em>GENERATOR</em></button>
+              <button class="v4-dweller" data-dweller="boone"><i>B</i><span><b>BOONE</b><small>STR 2 · INT 5 · LCK 2</small></span><em>WATER PLANT</em></button>
+              <button class="v4-dweller" data-dweller="pip"><i>P</i><span><b>PIP</b><small>STR 2 · INT 2 · LCK 5</small></span><em>STANDBY</em></button>
+              <button class="v4-dweller" data-dweller="rook"><i>R</i><span><b>ROOK</b><small>STR 3 · INT 3 · LCK 3</small></span><em>STANDBY</em></button>
+            </div>
+          </div>
+        </div>
+        <aside class="v4-side">
+          <div class="v4-panel-heading">OVERSEER TERMINAL <span class="v4-live-dot">● LIVE</span></div>
+          <div id="v4Mission" class="v4-mission">
+            <small>PRIMARY DIRECTIVE</small><h2>GET THE DINER RUNNING</h2>
+            <p>The Vault can generate power and filter water, but its food supply is nearly gone. Repair the Diner before the next ration cycle.</p>
+            <div class="v4-objective"><span>01</span> Repair the Diner <b id="v4RepairMark">○</b></div>
+            <div class="v4-objective"><span>02</span> Stabilize all supplies <b id="v4SupplyMark">○</b></div>
+            <div class="v4-objective"><span>03</span> Restore the radio <b id="v4RadioMark">○</b></div>
+          </div>
+          <div id="v4RoomInfo" class="v4-room-info">
+            <small>SELECTED LOCATION</small><h3 id="v4RoomTitle">NO ROOM SELECTED</h3>
+            <p id="v4RoomDesc">Select a room on the map to inspect its systems and available actions.</p>
+            <div id="v4RoomActions"></div>
+          </div>
+          <div class="v4-log-wrap"><div class="v4-panel-heading">SYSTEM LOG <span>RECENT</span></div><div id="v4Log" class="v4-log"><p>08:04 // Overseer connection established.</p><p>08:04 // Four life signs detected.</p></div></div>
+        </aside>
+      </div>
+      <div class="v4-bottom-actions"><button class="secondary-button" id="v4Help">FIELD NOTES</button><span id="v4Hint">TIP: ASSIGN YOUR DWELLERS WHERE THEY'RE MOST USEFUL.</span><button class="secondary-button" id="v4Pause">PAUSE SIMULATION</button></div>
+    </section>
+
+    <section id="v4Expedition" class="v4-card hidden">
+      <div class="v4-eyebrow">OUTSIDE THE SAFE ZONE // FINAL OPERATION</div>
+      <h2>THE SIGNAL BEYOND</h2>
+      <p class="v4-lead">The radio has picked up a repeating distress signal from an abandoned relay station.</p>
+      <div class="v4-expedition-art"><div class="v4-sun"></div><div class="v4-tower">⌁</div><div class="v4-horizon"></div><div class="v4-expedition-label">RELAY STATION 7 // 1.8 KM</div></div>
+      <p>Choose two Dwellers for the expedition. Their attributes shape what they can discover.</p>
+      <div class="v4-team" id="v4Team">
+        <button class="v4-team-card" data-team="ada"><i>A</i><b>ADA-7</b><small>STR 5 · INT 2 · LCK 2</small></button>
+        <button class="v4-team-card" data-team="boone"><i>B</i><b>BOONE</b><small>STR 2 · INT 5 · LCK 2</small></button>
+        <button class="v4-team-card" data-team="pip"><i>P</i><b>PIP</b><small>STR 2 · INT 2 · LCK 5</small></button>
+        <button class="v4-team-card" data-team="rook"><i>R</i><b>ROOK</b><small>STR 3 · INT 3 · LCK 3</small></button>
+      </div>
+      <p id="v4TeamHint" class="v4-feedback">SELECT EXACTLY TWO TEAM MEMBERS.</p>
+      <button class="primary-button" id="v4Launch" disabled>LAUNCH EXPEDITION</button>
+    </section>
+
+    <section id="v4Ending" class="v4-card v4-ending hidden">
+      <div class="v4-achievement-seal">★</div>
+      <div class="v4-eyebrow">VAULT-TEC CERTIFIED // RESTORATION RECORD 004</div>
+      <h1>THE WASTELAND<br>SURVIVOR</h1>
+      <p class="v4-lead">You brought the Vault back to life. But the signal wasn't a distress call...</p>
+      <div class="v4-reveal">
+        <small>RECOVERED MESSAGE // PLAYBACK</small>
+        <p>“Congratulations, Overseer. You found the relay. You restored the Vault. And you did it without reading the emergency manual.”</p>
+        <p class="v4-reveal-sign">— THE PREVIOUS OVERSEER</p>
+      </div>
+      <div class="v4-cert-grid"><span>POWER<b>STABLE</b></span><span>WATER<b>SECURED</b></span><span>FOOD<b>RESTORED</b></span><span>DWELLERS<b>SAFE</b></span></div>
+      <div class="v4-achievement-name">ACHIEVEMENT UNLOCKED<br><strong>THE WASTELAND SURVIVOR</strong></div>
+      <p class="v4-final-line">“Turns out, the real treasure was the people you kept alive.”</p>
+      <button class="primary-button" id="v4Return">RETURN TO VAULT COMPLEX</button>
+    </section>
+  </div>
+  <div class="bottom-bar"><span>VAULT-TEC © 2077</span><span>SIMULATION // 004</span></div>
+  <div id="v4Modal" class="v4-modal hidden" role="dialog" aria-modal="true"><div class="v4-modal-card"><small id="v4ModalTag">SYSTEM ALERT</small><h2 id="v4ModalTitle">INCOMING EVENT</h2><p id="v4ModalText"></p><div id="v4ModalChoices"></div></div></div>
+</section>
+
+
+<!-- VAULT 05: CLASSIFIED / PROJECT LAST KEY -->
+<section class="screen level-screen hidden" id="vault05Screen">
+  <div class="top-bar"><span>VAULT-TEC // RESTRICTED</span><span>VAULT 05 // CLASSIFIED</span></div>
+  <div class="v5-shell">
+    <section class="v5-scene v5-intro" id="v5Intro">
+      <div class="v5-hero-art"><div class="v5-hero-grid"></div><div class="v5-door-art"><span>05</span></div><div class="v5-hero-glow"></div></div>
+      <div class="v5-kicker">UNKNOWN FACILITY // CLEARANCE LEVEL 05</div>
+      <h1>PROJECT <em>LAST KEY</em></h1>
+      <p class="v5-lead">A hidden facility has been waiting beneath the surface. Your arrival was not part of the plan.</p>
+      <div class="v5-terminal">
+        <p><span>FACILITY STATUS</span><b class="v5-alert">SEALED</b></p>
+        <p><span>ARCHIVE DIRECTORY</span><b>4 FILES DETECTED</b></p>
+        <p><span>OPERATOR</span><b>IDENTITY VERIFIED</b></p>
+      </div>
+      <div class="v5-actions"><button class="v5-btn" id="v5Enter">ENTER FACILITY</button><button class="v5-quiet" id="v5Mute" aria-pressed="false">♫ SOUND: ON</button></div>
+      <p class="v5-footnote">AUDIO IS GENERATED LOCALLY // NO EXTERNAL TRACK REQUIRED</p>
+    </section>
+
+    <section class="v5-scene hidden" id="v5Archives">
+      <img class="v5-scene-art" src="assets/vault05/images/archive.svg" alt="Classified archive terminal room">
+      <div class="v5-heading"><div><small>SECURE DIRECTORY // 001</small><h2>CLASSIFIED ARCHIVES</h2></div><span class="v5-stamp">4 RECORDS</span></div>
+      <p class="v5-copy">Four vaults. Four different tests. The records below connect the fragments you have already recovered.</p>
+      <div class="v5-files">
+        <button class="v5-file" data-file="0"><span class="v5-file-icon">01</span><span><b>THE BEGINNING</b><small>GEOLOGY CLASS // 2023</small></span><i>OPEN ↗</i></button>
+        <button class="v5-file" data-file="1"><span class="v5-file-icon">02</span><span><b>THE SOUND</b><small>FREQUENCY DATABASE // 05 TRACKS</small></span><i>OPEN ↗</i></button>
+        <button class="v5-file" data-file="2"><span class="v5-file-icon">03</span><span><b>THE ARCHIVE</b><small>MEMORY RECOVERY // 67 FILES</small></span><i>OPEN ↗</i></button>
+        <button class="v5-file" data-file="3"><span class="v5-file-icon">04</span><span><b>THE SURVIVAL</b><small>WASTELAND RESTORATION // 04 DWELLERS</small></span><i>OPEN ↗</i></button>
+      </div>
+      <div class="v5-record hidden" id="v5Record" aria-live="polite"><small id="v5RecordTag">RECOVERED RECORD</small><h3 id="v5RecordTitle"></h3><p id="v5RecordText"></p><button class="v5-quiet" id="v5CloseRecord">CLOSE RECORD</button></div>
+      <div class="v5-bottom"><span id="v5ArchiveCount">0 / 4 RECORDS REVIEWED</span><button class="v5-btn" id="v5ToEcho" disabled>INITIALIZE PROJECT ECHO</button></div>
+    </section>
+
+    <section class="v5-scene hidden" id="v5Echo">
+      <img class="v5-scene-art" src="assets/vault05/images/echo.svg" alt="Signal reconstruction control console">
+      <div class="v5-heading"><div><small>EXPERIMENT 05 // SIGNAL RECONSTRUCTION</small><h2>PROJECT ECHO</h2></div><span class="v5-stamp" id="v5RoundLabel">ROUND 01 / 03</span></div>
+      <p class="v5-copy" id="v5EchoInstruction">Watch the signal sequence. When it ends, repeat it in the same order.</p>
+      <div class="v5-echo-console">
+        <div class="v5-console-top"><span>SEQUENCE BUFFER</span><span id="v5EchoStatus">AWAITING SIGNAL</span></div>
+        <div class="v5-nodes">
+          <button class="v5-node" data-node="0"><span>⌁</span><small>NODE 01</small></button>
+          <button class="v5-node" data-node="1"><span>◉</span><small>NODE 02</small></button>
+          <button class="v5-node" data-node="2"><span>ϟ</span><small>NODE 03</small></button>
+          <button class="v5-node" data-node="3"><span>◇</span><small>NODE 04</small></button>
+        </div>
+        <div class="v5-sequence-track"><div id="v5SequenceProgress"></div></div>
+        <div class="v5-console-bottom"><span id="v5EchoStep">SIGNAL: 0 / 3</span><span id="v5EchoHint">OBSERVE THE PATTERN</span></div>
+      </div>
+      <div class="v5-echo-actions"><button class="v5-btn" id="v5Replay" disabled>REPLAY SIGNAL</button><button class="v5-quiet" id="v5EchoContinue" disabled>CONTINUE →</button></div>
+      <div class="v5-hidden-node hidden" id="v5HiddenNode"><span>NODE 05 // UNLISTED</span><b>AN EXTRA SIGNAL WAS FOUND.</b></div>
+    </section>
+
+    <section class="v5-scene hidden" id="v5Revelation">
+      <img class="v5-scene-art" src="assets/vault05/images/revelation.svg" alt="Recovered archive transmission graphic">
+      <div class="v5-reveal-art"><div class="v5-reveal-ring"></div><span>RECOVERED TRANSMISSION</span></div>
+      <small class="v5-kicker">ARCHIVE REVIEW // ALL RECORDS VERIFIED</small>
+      <h2>THE ARCHIVE WAS NEVER THE MISSION.</h2>
+      <div class="v5-record-list">
+        <p><b>VAULT 01</b><span>THE BEGINNING</span><strong>✓</strong></p>
+        <p><b>VAULT 02</b><span>THE SOUND</span><strong>✓</strong></p>
+        <p><b>VAULT 03</b><span>THE ARCHIVE</span><strong>✓</strong></p>
+        <p><b>VAULT 04</b><span>THE SURVIVAL</span><strong>✓</strong></p>
+      </div>
+      <div class="v5-transcript" id="v5Transcript">FOUR VAULTS. FOUR DIFFERENT TESTS.<br><b>ONE FINAL PROTOCOL REMAINING.</b></div>
+      <button class="v5-btn" id="v5Authorize">REQUEST FINAL AUTHORIZATION</button>
+    </section>
+
+    <section class="v5-scene hidden" id="v5Authorization">
+      <img class="v5-scene-art" src="assets/vault05/images/entrance.svg" alt="Sealed classified facility entrance">
+      <div class="v5-heading"><div><small>SECURITY CHECKPOINT // FINAL KEY</small><h2>THE LAST KEY</h2></div><span class="v5-stamp">LEVEL 06</span></div>
+      <p class="v5-copy">The records point to one project. Identify the name used to connect all four stages.</p>
+      <div class="v5-keypad" id="v5Choices">
+        <button data-answer="PROJECT ECHO">PROJECT ECHO</button>
+        <button data-answer="PROJECT LAST KEY">PROJECT LAST KEY</button>
+        <button data-answer="PROJECT OVERSEER">PROJECT OVERSEER</button>
+      </div>
+      <p class="v5-feedback" id="v5AuthFeedback">AWAITING OPERATOR INPUT.</p>
+    </section>
+
+    <section class="v5-scene hidden v5-ending" id="v5Ending">
+      <img class="v5-scene-art v5-ending-art" src="assets/vault05/images/final-door.svg" alt="Vault door opening into a bright light">
+      <div class="v5-ending-light"></div>
+      <small class="v5-kicker">INCOMING TRANSMISSION // SOURCE UNKNOWN</small>
+      <div class="v5-typing" id="v5EndingText"></div>
+      <div class="v5-final-title hidden" id="v5FinalTitle"><span>ACCESS AUTHORIZED</span><h2>VAULT 06</h2><p>THE FINAL PROTOCOL</p><small>ONE LAST CHALLENGE REMAINS.</small></div>
+      <button class="v5-btn hidden" id="v5Return">RETURN TO VAULT COMPLEX</button>
+    </section>
+  </div>
+  <div class="bottom-bar"><span>VAULT-TEC © 2077</span><span>PROJECT LAST KEY // 005</span></div>
+</section>
+
+    <!-- VAULT 06: PROJECT NEBULA -->
+    <section class="screen level-screen hidden" id="vault06Screen">
+      <div class="top-bar"><span>VAULT-TEC // FINAL AUTHORIZATION</span><span>VAULT 06 // PROJECT NEBULA</span></div>
+      <div class="v6-shell">
+        <section class="v6-scene" id="v6WordleScene">
+          <div class="v6-orbit-mark">✦</div>
+          <small class="v6-kicker">FINAL PROTOCOL // IDENTITY VERIFICATION</small>
+          <h1>PROJECT <em>NEBULA</em></h1>
+          <p class="v6-copy">The final archive is sealed. Identify the operator to proceed.</p>
+          <div class="v6-wordle-meta"><span>6 LETTERS</span><span>7 ATTEMPTS</span><span>ONE FINAL KEY</span></div>
+          <div id="v6Board" class="v6-board" aria-label="Word puzzle board"></div>
+          <div id="v6Keyboard" class="v6-keyboard" aria-label="On-screen keyboard"></div>
+          <p id="v6WordleFeedback" class="v6-feedback" aria-live="polite">ENTER THE SIX-LETTER IDENTITY.</p>
+          <button id="v6Retry" class="v6-btn hidden">RETRY FINAL PROTOCOL</button>
+          <button id="v6Back" class="v6-quiet">RETURN TO VAULT COMPLEX</button>
+        </section>
+
+        <section class="v6-scene hidden" id="v6RevealScene">
+          <div class="v6-reveal-header"><small>IDENTITY CONFIRMED // PERSONAL MEMORY ARCHIVE</small><h2>ALL MEMORIES. ONE PLACE.</h2><p>56 FRAGMENTS RECOVERED</p></div>
+          <div id="v6MemoryWall" class="v6-memory-wall" aria-label="Memory wall"></div>
+          <div class="v6-center-player">
+            <div class="v6-player-frame">
+              <video id="v6Video" playsinline preload="auto"></video>
+              <div id="v6VideoOverlay" class="v6-video-overlay"><span>▶</span><small>MEMORY PLAYBACK</small></div>
+            </div>
+            <div class="v6-video-meta"><span id="v6VideoLabel">MEETING // 01 / 15</span><span id="v6VideoStatus">INITIALIZING</span></div>
+          </div>
+          <div class="v6-wave-status"><span id="v6WaveLabel">MEMORY WAVE 01 / 04</span><span id="v6PhotoCount">00 / 56</span></div>
+          <div class="v6-wave-progress"><div id="v6WaveProgress"></div></div>
+          <button id="v6SoundToggle" class="v6-sound-toggle" aria-pressed="false">♫ SOUND ON</button>
+        </section>
+
+        <section class="v6-scene hidden" id="v6FinalScene">
+          <div class="v6-final-stars"></div>
+          <small class="v6-kicker">PROJECT NEBULA // ARCHIVE COMPLETE</small>
+          <div class="v6-final-seal">20</div>
+          <h1>THE MEMORIES<br>ARE YOURS.</h1>
+          <p class="v6-final-copy">Every little moment led to this.</p>
+          <button id="v6BirthdayButton" class="v6-btn v6-birthday-btn">UNLOCK YOUR FINAL SURPRISE</button>
+          <div id="v6BirthdayMessage" class="v6-birthday-message hidden">
+            <p class="v6-message-eyebrow">A NEW CHAPTER BEGINS</p>
+            <h2>HAPPY 20TH<br><em>BIRTHDAY, MALOKA!</em> 🎂</h2>
+            <div class="v6-message-rule"></div>
+            <p>Here's to another year of music, laughter, unforgettable memories, and all the little things that make life special.</p>
+            <h3>WELCOME TO LEVEL 20! ✨🚀💜</h3>
+            <p class="v6-signoff">YOUR NEXT ADVENTURE STARTS NOW.</p>
+          </div>
+          <button id="v6ReturnHub" class="v6-quiet hidden">RETURN TO VAULT COMPLEX</button>
+          <button id="v6SoundToggleFinal" class="v6-sound-toggle" aria-pressed="false">♫ SOUND ON</button>
+        </section>
+      </div>
+      <div class="bottom-bar"><span>VAULT-TEC © 2077</span><span>FINAL MEMORY FILE // 006</span></div>
+    </section>
+
+    </main>
+
+    <link rel="stylesheet" href="vault04/vault04.css">
+    <script src="script.js"></script>
+    <script src="vault04/vault04.js"></script>
+    <script src="vault05/vault05.js"></script>
+    <script src="vault06/vault06.js"></script>
+
+</body>
+</html>

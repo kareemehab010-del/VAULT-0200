@@ -1,0 +1,93 @@
+
+/* VAULT 05 — CLASSIFIED / isolated styles */
+#vault05Screen{--v5g:#a6e5a0;--v5dim:#66866a;--v5amber:#d7b46f;--v5red:#d66d61;color:#dcebd8}
+#vault05Screen .v5-shell{width:min(1040px,calc(100% - 28px));margin:28px auto;position:relative;z-index:3}
+#vault05Screen .v5-scene{position:relative;overflow:hidden;min-height:590px;padding:clamp(22px,4vw,48px);border:1px solid #49664a;background:linear-gradient(145deg,rgba(10,23,14,.97),rgba(4,10,7,.98));box-shadow:0 0 55px #7dbd6920,inset 0 0 45px #7dbd6908}
+#vault05Screen .v5-scene:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.17;background:repeating-linear-gradient(0deg,transparent 0 3px,#b4e7a0 4px,transparent 5px);mix-blend-mode:screen}
+#vault05Screen .v5-scene>*{position:relative;z-index:1}
+#vault05Screen .v5-intro{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:680px;background:radial-gradient(ellipse at 50% 35%,#1d3a25 0,#0b180e 42%,#040906 100%)}
+#vault05Screen .v5-hero-art{height:205px;width:min(560px,100%);position:relative!important;margin:0 auto 18px;background:linear-gradient(180deg,#172c21,#071009);border:1px solid #426448;overflow:hidden;box-shadow:0 0 45px #8fcf7422}
+#vault05Screen .v5-hero-grid{position:absolute;inset:0;background:linear-gradient(90deg,transparent 49%,#9acb8418 50%,transparent 51%),linear-gradient(0deg,transparent 49%,#9acb8418 50%,transparent 51%);background-size:38px 38px;transform:perspective(220px) rotateX(28deg) scale(1.4);transform-origin:bottom}
+#vault05Screen .v5-door-art{position:absolute;left:50%;bottom:-48px;transform:translateX(-50%);width:210px;height:210px;border:9px double #819b70;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#243c28 0 48%,#101c13 49% 61%,#455d43 62% 65%,#0b130d 66%);box-shadow:0 0 32px #9cda7655,inset 0 0 30px #000}
+#vault05Screen .v5-door-art:before,#vault05Screen .v5-door-art:after{content:"";position:absolute;background:#829b70}
+#vault05Screen .v5-door-art:before{height:8px;width:260px}
+#vault05Screen .v5-door-art:after{height:260px;width:8px}
+#vault05Screen .v5-door-art span{font-size:40px;letter-spacing:8px;color:#c5e4ad;text-shadow:0 0 18px #8cff72}
+#vault05Screen .v5-hero-glow{position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,#c5e9a01c 50%,transparent 70%);animation:v5scan 5s ease-in-out infinite}
+@keyframes v5scan{0%,100%{transform:translateX(-80%)}50%{transform:translateX(80%)}}
+#vault05Screen .v5-kicker{color:var(--v5amber);font-size:10px;letter-spacing:3px}
+#vault05Screen h1{font-size:clamp(36px,7vw,68px);letter-spacing:4px;margin:12px 0;text-shadow:0 0 22px #a6e5a044}
+#vault05Screen h1 em{font-style:normal;color:var(--v5g)}
+#vault05Screen .v5-lead{max-width:600px;color:#afc4ad;line-height:1.8;font-size:14px}
+#vault05Screen .v5-terminal{width:min(440px,100%);margin:20px auto;padding:14px 18px;border:1px solid #3c5d40;background:#030905;text-align:left;font:10px/2.3 monospace}
+#vault05Screen .v5-terminal p{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed #263d29;margin:0}
+#vault05Screen .v5-terminal span{color:#789779}
+#vault05Screen .v5-alert{color:var(--v5red)}
+#vault05Screen .v5-actions{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:8px}
+#vault05Screen .v5-btn,#vault05Screen .v5-quiet{border:1px solid var(--v5g);padding:13px 20px;background:var(--v5g);color:#071008;font:700 11px monospace;letter-spacing:1.5px;cursor:pointer;transition:.2s}
+#vault05Screen .v5-btn:hover{box-shadow:0 0 22px #a6e5a066;filter:brightness(1.1)}
+#vault05Screen .v5-btn:disabled{opacity:.35;cursor:not-allowed;box-shadow:none}
+#vault05Screen .v5-quiet{background:transparent;color:var(--v5g)}
+#vault05Screen .v5-footnote{font-size:9px;color:#67816a;letter-spacing:1.5px;margin-top:20px}
+#vault05Screen .v5-heading{display:flex;justify-content:space-between;align-items:center;gap:15px;border-bottom:1px solid #38523b;padding-bottom:16px;margin-bottom:20px}
+#vault05Screen .v5-heading small{font-size:9px;color:var(--v5amber);letter-spacing:2px}
+#vault05Screen h2{font-size:clamp(25px,5vw,42px);letter-spacing:3px;margin:7px 0}
+#vault05Screen .v5-stamp{border:1px solid #a45c4f;color:#e18a7d;padding:8px 10px;font-size:9px;letter-spacing:1px;white-space:nowrap}
+#vault05Screen .v5-copy{color:#afc4ad;line-height:1.8;font-size:13px;max-width:700px}
+#vault05Screen .v5-files{display:grid;gap:10px;margin:24px 0}
+#vault05Screen .v5-file{display:flex;align-items:center;gap:14px;width:100%;padding:14px;background:#0a160d;border:1px solid #314b34;color:#dcebd8;text-align:left;cursor:pointer}
+#vault05Screen .v5-file:hover,#vault05Screen .v5-file.opened{border-color:var(--v5g);background:#142619}
+#vault05Screen .v5-file-icon{width:42px;height:42px;display:grid;place-items:center;border:1px solid #678567;color:var(--v5g);font-size:14px}
+#vault05Screen .v5-file span:nth-child(2){flex:1}
+#vault05Screen .v5-file b,#vault05Screen .v5-file small{display:block}
+#vault05Screen .v5-file b{font-size:12px;letter-spacing:1px}
+#vault05Screen .v5-file small{font-size:9px;color:#79967b;margin-top:5px}
+#vault05Screen .v5-file i{font-style:normal;color:var(--v5amber);font-size:9px}
+#vault05Screen .v5-record{padding:18px;border-left:2px solid var(--v5amber);background:#182419;margin:15px 0}
+#vault05Screen .v5-record small{color:var(--v5amber);font-size:9px;letter-spacing:2px}
+#vault05Screen .v5-record h3{margin:8px 0;color:var(--v5g)}
+#vault05Screen .v5-record p{font-size:13px;line-height:1.8;color:#d2e0ce}
+#vault05Screen .v5-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:20px}
+#vault05Screen .v5-bottom>span{font-size:10px;color:#809b80;letter-spacing:1px}
+#vault05Screen .v5-echo-console{border:1px solid #42634b;background:radial-gradient(ellipse at center,#172c1d,#050b07);padding:18px;margin:25px 0}
+#vault05Screen .v5-console-top,#vault05Screen .v5-console-bottom{display:flex;justify-content:space-between;gap:12px;font:9px monospace;letter-spacing:1px;color:#84a887}
+#vault05Screen .v5-nodes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0}
+#vault05Screen .v5-node{aspect-ratio:1/1;min-height:100px;border:1px solid #526e53;background:linear-gradient(145deg,#1b3020,#09120b);color:#c3e6b7;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;cursor:pointer;transition:.15s}
+#vault05Screen .v5-node span{font-size:34px}
+#vault05Screen .v5-node small{font-size:9px;letter-spacing:1px}
+#vault05Screen .v5-node.active{background:#b2e69e;color:#071008;box-shadow:0 0 30px #a6e5a088;transform:scale(.97)}
+#vault05Screen .v5-node:disabled{cursor:default}
+#vault05Screen .v5-sequence-track{height:5px;background:#1a2a1c;margin:18px 0;overflow:hidden}
+#vault05Screen .v5-sequence-track div{height:100%;width:0;background:var(--v5g);transition:width .25s}
+#vault05Screen .v5-echo-actions{display:flex;justify-content:space-between;gap:12px}
+#vault05Screen .v5-hidden-node{margin-top:18px;padding:16px;border:1px dashed var(--v5amber);color:var(--v5amber);font-size:11px;letter-spacing:1px}
+#vault05Screen .v5-hidden-node b{display:block;margin-top:8px;color:#dcebd8}
+#vault05Screen .v5-reveal-art{height:110px;display:grid;place-items:center;position:relative!important;color:var(--v5amber);font-size:10px;letter-spacing:3px;margin-bottom:20px}
+#vault05Screen .v5-reveal-ring{position:absolute;width:100px;height:100px;border:1px solid #b99a5e;border-radius:50%;box-shadow:0 0 28px #c4a15a33,inset 0 0 25px #c4a15a22}
+#vault05Screen .v5-record-list{max-width:560px;margin:25px auto;border-top:1px solid #334b36}
+#vault05Screen .v5-record-list p{display:flex;align-items:center;gap:15px;border-bottom:1px solid #334b36;padding:12px 5px;margin:0;font-size:10px}
+#vault05Screen .v5-record-list b{color:var(--v5g);width:75px}
+#vault05Screen .v5-record-list span{flex:1;color:#9eb39b}
+#vault05Screen .v5-record-list strong{color:var(--v5g)}
+#vault05Screen .v5-transcript{padding:20px;border:1px solid #3b5840;background:#050b07;text-align:center;color:#a8cba5;line-height:2.1;font:12px/2.2 monospace;margin:20px 0}
+#vault05Screen .v5-transcript b{color:var(--v5g)}
+#vault05Screen .v5-keypad{display:grid;gap:12px;margin:28px 0}
+#vault05Screen .v5-keypad button{padding:17px;border:1px solid #47634a;background:#0a160d;color:#cce5c4;font:700 12px monospace;letter-spacing:2px;cursor:pointer}
+#vault05Screen .v5-keypad button:hover{border-color:var(--v5g);background:#17291a}
+#vault05Screen .v5-feedback{min-height:24px;color:var(--v5amber);font:11px monospace;letter-spacing:1px}
+#vault05Screen .v5-ending{text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:650px;background:radial-gradient(ellipse at center,#1c3420,#050b07 68%)}
+#vault05Screen .v5-ending-light{position:absolute!important;inset:-30%;background:radial-gradient(ellipse at center,#e7f4c533,transparent 45%);opacity:0;transition:opacity 4s}
+#vault05Screen .v5-ending.reveal .v5-ending-light{opacity:1}
+#vault05Screen .v5-typing{max-width:700px;min-height:170px;font-size:clamp(22px,4vw,38px);line-height:1.6;letter-spacing:1px;color:#cde7c4;text-shadow:0 0 20px #a6e5a055;margin:35px auto}
+#vault05Screen .v5-final-title{padding:25px;border:1px solid #93b77e;background:#071009cc;min-width:min(420px,100%);box-shadow:0 0 35px #a6e5a033}
+#vault05Screen .v5-final-title span{font-size:9px;color:var(--v5amber);letter-spacing:3px}
+#vault05Screen .v5-final-title h2{font-size:clamp(42px,9vw,76px);margin:10px 0;color:var(--v5g);text-shadow:0 0 25px #a6e5a077}
+#vault05Screen .v5-final-title p{letter-spacing:4px}
+#vault05Screen .v5-final-title small{color:#9eb39b;font-size:9px}
+#vault05Screen .v5-ending .v5-btn{margin-top:25px}
+@media(max-width:600px){#vault05Screen .v5-scene{padding:20px 16px;min-height:560px}#vault05Screen .v5-nodes{gap:7px}#vault05Screen .v5-node{min-height:74px}#vault05Screen .v5-node span{font-size:26px}#vault05Screen .v5-node small{font-size:7px}#vault05Screen .v5-file{gap:9px;padding:11px}#vault05Screen .v5-file small{font-size:8px}#vault05Screen .v5-stamp{font-size:8px}}
+
+#vault05Screen .v5-scene-art{display:block;width:100%;height:clamp(110px,20vw,190px);object-fit:cover;opacity:.8;border:1px solid #405d43;margin:0 0 20px;filter:saturate(.8)}
+#vault05Screen .v5-ending-art{position:absolute!important;inset:0;width:100%;height:100%;object-fit:cover;opacity:.16;border:0;margin:0;z-index:0}
+#vault05Screen .v5-ending>*:not(.v5-ending-art){z-index:1}
+#vault05Screen .v5-intro .v5-hero-art{background-image:url("../assets/vault05/images/entrance.svg");background-size:cover;background-position:center}
